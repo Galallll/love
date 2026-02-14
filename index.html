@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <style>
+        :root { --main-pink: #ffafcc; --dark-pink: #fb6f92; }
+        body { background-color: #ffe5ec; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; }
+        
+        /* صفحة القفل */
+        #lock-screen { text-align: center; background: white; padding: 30px; border-radius: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 85%; max-width: 350px; }
+        .heart-icon { font-size: 50px; color: var(--dark-pink); margin-bottom: 10px; animation: beat 1.2s infinite; }
+        @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        h2 { color: #555; font-size: 1.2rem; }
+        input { width: 100%; padding: 12px; margin: 20px 0; border: 1px solid #ddd; border-radius: 10px; text-align: center; outline: none; }
+        .btn-unlock { background: var(--dark-pink); color: white; border: none; padding: 12px 30px; border-radius: 25px; cursor: pointer; font-size: 1rem; width: 100%; }
+
+        /* الصفحة الرئيسية بعد الفتح */
+        #main-content { display: none; width: 100%; max-width: 450px; padding: 20px; text-align: center; }
+        .header-msg { background: white; padding: 20px; border-radius: 20px; margin-bottom: 20px; border-top: 5px solid var(--dark-pink); }
+        .header-msg h1 { color: var(--dark-pink); margin: 0; }
+        
+        /* عداد الوقت زي الفيديو */
+        .timer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0; }
+        .timer-box { background: white; padding: 15px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .timer-box span { display: block; font-size: 1.5rem; font-weight: bold; color: var(--dark-pink); }
+        .timer-box label { font-size: 0.8rem; color: #777; }
+
+        /* قسم الذكريات والصور */
+        .memory-card { background: white; padding: 15px; border-radius: 20px; margin-top: 20px; position: relative; }
+        .photo-placeholder { background: #eee; width: 100%; height: 200px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #999; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <div id="lock-screen">
+        <div class="heart-icon">💖</div>
+        <h2>Enter Password</h2>
+        <p style="color: #999; font-size: 0.8rem;">Our Love Story / كلمة المرور</p>
+        <input type="text" id="passInput" placeholder="اكتبي  هنا ">
+        <button class="btn-unlock" onclick="unlock()">Unlock 🔓</button>
+     </div>
+
+     <div id="main-content">
+        <div class="header-msg">
+            <h1>ينور عيني 💕</h1>
+            <p>كل سنة وإنتي طيبة 🌸
+النهارده عيد الحب فكنت عايز اقولك  بس الحقيقه ان كل يوم وانتي معايا هو عيد بالنسبالي لأن وجودك جنبي هو الهديه من ربنا اللي عمري ما كنت أتخيلها تحصللي	
+من أول يوم عرفتك وأنا حسيت إن في حاجه جوايا اتغيرت 
+عيد الحب بالنسبالي مش ورد وهدايا ولا خروجه ولا كلام حلو بس هو إنك تكوني جنبي وإننا نفضل سوا على طول نعدي بكل حاجه حلوه ووحشه ونفضل بنختار بعض في كل مره 
+  وإن شاء الله الأيام اللي جاية تبقى كلها خير لينا
+
+
+
+❤💕💍</p>
+       
+
+ 
+          <img src="C:\Users\DELL\OneDrive\Pictures\WhatsApp Image 2026-02-13 at 11.48.12 PM.jpeg" style="width:100%; border-radius:15px;">
+          <p></p>
+
+           </div>
+
+        <h3 style="color: #555;">الوقت اللي فات معاكي ⏰</h3>
+        <div class="timer-grid">
+            <div class="timer-box"><span id="days">0</span><label>يوم</label></div>
+            <div class="timer-box"><span id="hours">0</span><label>ساعة</label></div>
+            <div class="timer-box"><span id="minutes">0</span><label>دقيقة</label></div>
+            <div class="timer-box"><span id="seconds">0</span><label>ثانية</label></div>
+         </div> 
+         
+          <div class="memory-card">
+          <p> ✨</p>
+          </div>
+          </div>
+
+         
+
+          <script>
+         // التاريخ اللي بدأتوا فيه (سنة، شهر-1، يوم)
+          const startDate = new Date(2026, 1, 13); // 3 أكتوبر 2025 (الشهر بيبدأ من 0)
+
+          function unlock() {
+          const pass = document.getElementById('passInput').value;
+            if(pass === "2/13") { // كلمة السر
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                setInterval(updateTimer, 1000);
+             } else {
+                alert("كلمة السر غلط! جربي تاني");
+             }
+             }
+
+         function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const m = Math.floor((diff / (1000 * 60)) % 60);
+            const s = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('days').innerText = d;
+            document.getElementById('hours').innerText = h;
+            document.getElementById('minutes').innerText = m;
+            document.getElementById('seconds').innerText = s;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
