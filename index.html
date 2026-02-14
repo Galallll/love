@@ -14,11 +14,16 @@ body{
     margin:0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background:#ffe5ec;
+    overflow:auto; /* السماح بالسكرول */
+}
+
+/* حاوية المحتوى */
+.container{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    min-height:100vh;
-    overflow:hidden;
+    width:100%;
+    padding:20px 0;
 }
 
 /* قلوب الخلفية */
@@ -44,6 +49,7 @@ body{
     width:85%;
     max-width:350px;
     box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    margin:20px auto;
 }
 
 .heart-icon{
@@ -80,10 +86,10 @@ button{
 /* المحتوى */
 #main-content{
     display:none;
-    width:100%;
+    width:85%;
     max-width:450px;
-    padding:20px;
     text-align:center;
+    margin-top:20px;
 }
 
 .header-msg{
@@ -126,37 +132,37 @@ img{
 
 <body>
 
-<!-- شاشة القفل -->
-<div id="lock-screen">
-    <div class="heart-icon">💖</div>
-    <h2>Enter Password</h2>
-    <input type="text" id="passInput" placeholder="اكتبي هنا">
-    <button onclick="unlock()">Unlock 🔓</button>
-</div>
+<div class="container">
+    <!-- شاشة القفل -->
+    <div id="lock-screen">
+        <div class="heart-icon">💖</div>
+        <h2>Enter Password</h2>
+        <input type="text" id="passInput" placeholder="اكتبي هنا">
+        <button onclick="unlock()">Unlock 🔓</button>
+    </div>
 
-<!-- المحتوى -->
-<div id="main-content">
+    <!-- المحتوى -->
+    <div id="main-content">
+        <div class="header-msg">
+            <h1>ينور عيني 💕</h1>
+            <p>
+            كل سنة وانتي طيبة 🌸  
+            وجودك في حياتي أجمل حاجة حصلتلي  
+            وكل لحظة معاكي هي ذكرى بحبها ❤️
+            </p>
+        </div>
 
-<div class="header-msg">
-<h1>ينور عيني 💕</h1>
-<p>
-كل سنة وانتي طيبة 🌸  
-وجودك في حياتي أجمل حاجة حصلتلي  
-وكل لحظة معاكي هي ذكرى بحبها ❤️
-</p>
-</div>
+        <img src="gg.jpeg" alt="memory">
 
-<img src="gg.jpeg" alt="memory">
+        <h3>الوقت اللي فات معاكي ⏰</h3>
 
-<h3>الوقت اللي فات معاكي ⏰</h3>
-
-<div class="timer-grid">
-<div class="timer-box"><span id="days">0</span><label>يوم</label></div>
-<div class="timer-box"><span id="hours">0</span><label>ساعة</label></div>
-<div class="timer-box"><span id="minutes">0</span><label>دقيقة</label></div>
-<div class="timer-box"><span id="seconds">0</span><label>ثانية</label></div>
-</div>
-
+        <div class="timer-grid">
+            <div class="timer-box"><span id="days">0</span><label>يوم</label></div>
+            <div class="timer-box"><span id="hours">0</span><label>ساعة</label></div>
+            <div class="timer-box"><span id="minutes">0</span><label>دقيقة</label></div>
+            <div class="timer-box"><span id="seconds">0</span><label>ثانية</label></div>
+        </div>
+    </div>
 </div>
 
 <!-- الموسيقى -->
